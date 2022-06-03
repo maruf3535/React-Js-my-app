@@ -1,36 +1,48 @@
 import React, { useState } from 'react'
 
-export default function TextForm() {
-    const [text, setText] = useState("Enter your text here");
+export default function TextForm(props) {
+    const handleOnChange = (event) => {
+        setText(event.target.value);
+    }
 
+    // Handle to change the text into uppercase function.
+    const [text, setText] = useState("Enter your text here");  // create an State
     const handleToUppercase = () => {
         let newText = text.toUpperCase();
         setText(newText);
     }
 
-    const handleOnChange = (event) => {
-        setText(event.target.value);
-    }
-
     // Counting the exact words number.
     let words = text.split(' ');
     let words_len = words.length;
-    for (let i in words){
-        if (words[i] == ''){
+    for (let i in words) {
+        if (words[i] == '') {
             words_len -= 1;
         }
     }
 
+    // Select and copy text from textbox in clipboaerd funciton.
+    const copyText = () => {
+        document.getElementById('textBox').select();
+        document.execCommand('copy');
+    };
+
+
+
+    // const [customStyle, setCustomStyle] = useState(style);
+
     return (
         <>
-            <div>
+                <div className='container mb-3'>
                 <div className="mb-3">
-                    <label htmlFor="text" className="form-label">Example textarea</label>
-                    <textarea className="form-control" id="text" rows="6" value={text} onChange={handleOnChange}></textarea>
+                    <label htmlFor="text" className="form-label"><b>Textarea</b></label>
+                    <textarea className="form-control" id="textBox" rows="6" value={text} onChange={handleOnChange}></textarea>
                 </div>
-                <button className="btn btn-primary" onClick={handleToUppercase}>Change to Uppercase</button>
+                <button className="btn btn-dark me-3" onClick={handleToUppercase}>Change to Uppercase</button>
+                <button className="btn btn-dark me-3" onClick={copyText}>Copy Text</button>
+                {/* <button className="btn btn-dark me-3" onClick={props.mode}>Enable Drak Mode</button> */}
             </div>
-            <div className="container my-3">
+            <div className="container pt-4 pb-2">
                 <h4>Your Text Summmary</h4>
                 <p className="fs-6">
                     <b> {words_len} </b>
