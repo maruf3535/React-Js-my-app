@@ -29,14 +29,21 @@ export default function TextForm(props) {
 
 
 
-    // const [customStyle, setCustomStyle] = useState(style);
+    const darkStyle = {
+        'backgroundColor': 'rgb(48 95 93)',
+        'color': 'white'
+    };
+    const lightStyle = {
+        'backgroundColor': 'white',
+        'color': 'black'
+    };
 
     return (
         <>
-                <div className='container mb-3'>
+            <div className='container mb-3'>
                 <div className="mb-3">
                     <label htmlFor="text" className="form-label"><b>Textarea</b></label>
-                    <textarea className="form-control" id="textBox" rows="6" value={text} onChange={handleOnChange}></textarea>
+                    <textarea className="form-control" id="textBox" rows="6" value={text} onChange={handleOnChange} style={props.mode === 'dark' ? darkStyle : lightStyle}></textarea>
                 </div>
                 <button className="btn btn-dark me-3" onClick={handleToUppercase}>Change to Uppercase</button>
                 <button className="btn btn-dark me-3" onClick={copyText}>Copy Text</button>
