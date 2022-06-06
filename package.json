@@ -1,6 +1,6 @@
 {
-  "homepage": "https://maruf3535.github.io/TextUtils/",
-  "name": "TextUtils",
+  "homepage": "https://maruf3535.github.io/TextUtils",
+  "name": "textutils",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
