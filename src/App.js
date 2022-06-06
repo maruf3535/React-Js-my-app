@@ -1,15 +1,9 @@
-import React, { Suspense, lazy } from 'react';
+import React from 'react';
 import { useState } from 'react';
-import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
-// import About from './components/About';
-// import Contact from './components/Contact';
-import { BrowserRouter, BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
-const Contact = lazy(() => import('./components/Contact'));
-const About = lazy(() => import('./components/About'));
 
 function App() {
   // toggleMode function and it will be passed through props.
@@ -50,21 +44,7 @@ function App() {
     <>
       <Navbar title="TitlePassed" mode={mode} toggleMode={toggleMode} modeText={modeText} />
       <Alert alert={alert} />
-      <BrowserRouter>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            {/* <Route path="/" element={<TextForm mode={mode} />} /> */}
-            <Route path="/" element={<Contact />} >
-
-              {console.log(Contact)}
-            </Route>
-            <Route path="/about" element={<About />} >
-              {console.log(About)}
-
-            </Route>
-          </Routes>
-        </Suspense>
-      </BrowserRouter>
+      <TextForm mode={mode} />
     </>
   );
 }
