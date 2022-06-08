@@ -43,8 +43,8 @@ function App() {
   return (
     <>
       <Navbar title="TitlePassed" mode={mode} toggleMode={toggleMode} modeText={modeText} />
-      {/* <Alert alert={alert} /> */}
-      <div className="my-3">
+      <Alert alert={alert} />
+      <div className="my-3" id="mainContainer">
         <TextForm mode={mode} />
       </div>
     </>

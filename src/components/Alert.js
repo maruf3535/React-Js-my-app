@@ -3,8 +3,10 @@ import React, { useState } from 'react';
 function Alert(props) {
     return (
         <>
-            <div className={`alert alert-${props.alert.type}`} role="alert">
-                {props.alert.message}
+            <div style={{height: '45px'}}>
+                <div className={`alert alert-${props.alert.type}`} role="alert">
+                    {props.alert.message}
+                </div>
             </div>
         </>
     )

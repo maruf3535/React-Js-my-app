@@ -14,12 +14,15 @@ export default function TextForm(props) {
 
     // Counting the exact words number.
     let words = text.split(' ');
-    let words_len = words.length;
-    for (let i in words) {
-        if (words[i] == '') {
-            words_len -= 1;
-        }
-    }
+    // let words_len = words.length;
+    // First Way
+    // for (let i in words) {
+    //     if (words[i] == '') {
+    //         words_len -= 1;
+    //     }
+    // }
+    // Alternate way
+    let words_len = words.filter((elm) => { return elm.length != 0 }).length;
 
     // Select and copy text from textbox in clipboaerd funciton.
     const copyText = () => {
